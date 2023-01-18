@@ -1,6 +1,6 @@
-import express from "express";
+const express = require("express");
 
-import { userController } from "../../controllers/index.js";
+const userController = require("../../controllers/user.controller");
 
 const router = express.Router();
 
@@ -12,7 +12,7 @@ router
   .patch(userController.updateUser)
   .delete(userController.deleteUser);
 
-export default router;
+module.exports = router;
 
 /**
  * @swagger

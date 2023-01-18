@@ -1,2 +1,1 @@
-
-export * as userController from './user.controller.js'
+module.exports.userController = require("./user.controller");

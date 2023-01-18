@@ -1,10 +1,10 @@
-import express from "express";
-import dotenv from "dotenv";
-import helmet from "helmet";
-import cors from "cors";
+const express = require("express");
+const dotenv = require("dotenv");
+const helmet = require("helmet");
+const cors = require("cors");
 
-import routes from "./routes/v1/index.js";
-import db from "./models/index.js";
+const routes = require("./routes/v1");
+const db = require("./models");
 
 // Configurations
 dotenv.config();

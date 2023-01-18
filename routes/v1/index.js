@@ -1,9 +1,9 @@
-import express from "express";
+const express = require("express");
+
+const userRoute = require("./user.route");
+const docsRoute = require("./docs.route");
 
 const router = express.Router();
-
-import userRoute from "./user.route.js";
-import docsRoute from "./docs.route.js";
 
 const Routes = [
   {
@@ -20,4 +20,4 @@ Routes.forEach((route) => {
   router.use(route.path, route.route);
 });
 
-export default router;
+module.exports = router;

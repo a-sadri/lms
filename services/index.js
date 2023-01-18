@@ -1,1 +1,1 @@
-export * as userService from "./user.service.js";
+module.exports.userService = require("./user.service");

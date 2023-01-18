@@ -1,6 +1,6 @@
-import httpStatus from "http-status";
+const httpStatus = require("http-status");
 
-import { userService } from "../services/index.js";
+const { userService } = require("../services");
 
 const createUser = async (req, res) => {
   const user = await userService.createUser(req.body);
@@ -27,4 +27,4 @@ const deleteUser = async (req, res) => {
   req.status(httpStatus.NO_CONTENT).send();
 };
 
-export { createUser, getUsers, getUser, updateUser, deleteUser };
+module.exports = { createUser, getUsers, getUser, updateUser, deleteUser };

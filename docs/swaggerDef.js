@@ -1,12 +1,11 @@
-import { config } from "dotenv";
-
-config();
+const { version } = require("../package.json");
+require("dotenv").config();
 
 const swaggerDef = {
   openapi: "3.0.0",
   info: {
     title: "test api",
-    version: process.env.VERSION,
+    version,
     license: {
       name: "MIT",
       url: "",
@@ -19,4 +18,4 @@ const swaggerDef = {
   ],
 };
 
-export default swaggerDef;
+module.exports = swaggerDef;

@@ -1,4 +1,4 @@
-import db from "../models/index.js";
+const db = require("../models");
 
 const User = db.users;
 
@@ -54,4 +54,10 @@ const deleteUserById = async (userId) => {
   });
 };
 
-export { createUser, getUsers, getUserById, updateUserById, deleteUserById };
+module.exports = {
+  createUser,
+  getUsers,
+  getUserById,
+  updateUserById,
+  deleteUserById,
+};
