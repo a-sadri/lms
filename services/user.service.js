@@ -1,6 +1,4 @@
-const db = require("../models");
-
-const User = db.users;
+const { User, sequelize } = require("../models");
 
 /**
  * Create a user

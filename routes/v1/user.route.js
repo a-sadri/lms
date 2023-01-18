@@ -35,9 +35,9 @@ module.exports = router;
  *          schema:
  *            type: object
  *            required:
- *              -name
- *              -email
- *              -password
+ *             - name
+ *             - email
+ *             - password
  *            properties:
  *              name:
  *                type: string
