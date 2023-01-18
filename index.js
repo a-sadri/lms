@@ -1,5 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
+import helmet from "helmet";
+import cors from "cors";
 
 import routes from "./routes/v1/index.js";
 import db from "./models/index.js";
@@ -7,6 +9,19 @@ import db from "./models/index.js";
 // Configurations
 dotenv.config();
 const app = express();
+
+// set security HTTP headers
+app.use(helmet());
+
+// enable cors
+app.use(cors());
+app.options("*", cors());
+
+// parse json request body
+app.use(express.json());
+
+// parse urlencoded request body
+app.use(express.urlencoded({ extended: true }));
 
 // DB Configuration
 db.sequelize

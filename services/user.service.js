@@ -1,4 +1,6 @@
-import User from "../models/user.model.js";
+import db from "../models/index.js";
+
+const User = db.users;
 
 /**
  * Create a user
@@ -6,12 +8,13 @@ import User from "../models/user.model.js";
  * @returns {Promis<User>}
  */
 const createUser = async (userBody) => {
-  return User.create(userBody);
+  console.log(userBody);
+  return await User.create(userBody);
 };
 
 /**
  * Get all users
- * @returns
+ * @returns {Promise<QueryResult>}
  */
 const getUsers = async () => {
   return User.findAll();
