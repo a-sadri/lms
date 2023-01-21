@@ -14,7 +14,7 @@ const getUsers = async (req, res) => {
 
 const getUser = async (req, res) => {
   const user = await userService.getUserById(req.params.userId);
-  res.status(httpStatus.OK).sen(user);
+  res.status(httpStatus.OK).send(user);
 };
 
 const updateUser = async (req, res) => {
