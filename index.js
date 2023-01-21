@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const helmet = require("helmet");
 const cors = require("cors");
+const morgan = require("morgan");
 
 const routes = require("./routes/v1");
 
@@ -13,6 +14,9 @@ const app = express();
 
 // set security HTTP headers
 app.use(helmet());
+
+// set logger
+app.use(morgan("tiny"));
 
 // enable cors
 app.use(cors());

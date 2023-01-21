@@ -9,7 +9,7 @@ const createUser = async (req, res) => {
 
 const getUsers = async (req, res) => {
   const users = await userService.getUsers();
-  res.status(httpStatus.OK).sen(users);
+  res.status(httpStatus.OK).send(users);
 };
 
 const getUser = async (req, res) => {
