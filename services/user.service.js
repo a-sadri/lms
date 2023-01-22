@@ -15,7 +15,9 @@ const createUser = async (userBody) => {
  * @returns {Promise<QueryResult>}
  */
 const getUsers = async () => {
-  return User.findAll();
+  return User.findAll({
+    attributes: ["name", "email"],
+  });
 };
 
 /**

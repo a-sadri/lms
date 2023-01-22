@@ -7,7 +7,7 @@ const router = express.Router();
 router
   .route("/")
   .post(videoController.createVideo)
-  .get(videoController.getVideo);
+  .get(videoController.getVideos);
 
 router
   .route("/:videoId")

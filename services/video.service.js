@@ -1,4 +1,4 @@
-const { Video, sequelize } = require("../models");
+const { Video, User, sequelize } = require("../models");
 
 /**
  * Create a video
@@ -15,7 +15,10 @@ const createVideo = async (videoBody) => {
  * @returns {Promise<QueryResult>}
  */
 const getVideos = async () => {
-  return Video.findAll();
+  return await Video.findAll({
+    attributes: ["name", "file"],
+    include: { model: User, attributes: ["name", "email"] },
+  });
 };
 
 /**
