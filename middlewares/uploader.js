@@ -1,6 +1,8 @@
 const multer = require("multer");
 const multerS3 = require("multer-s3");
 const AWS = require("aws-sdk");
+const { v4: uuidv4 } = require("uuid");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -23,7 +25,9 @@ const storage = multerS3({
     cb(null, { fieldName: file.fieldname });
   },
   key: (req, file, cb) => {
-    cb(null, Date.now().toString());
+    // const name = Date.now().toString();
+    const name = `${uuidv4()}${path.extname(file.originalname)}`;
+    cb(null, name);
   },
 });
 
