@@ -1,6 +1,7 @@
 const express = require("express");
 
 const videoController = require("../../controllers/video.controller");
+const { upload } = require("../../middlewares/uploader");
 
 const router = express.Router();
 
@@ -14,6 +15,8 @@ router
   .get(videoController.getVideo)
   .patch(videoController.updateVideo)
   .delete(videoController.deleteVideo);
+
+router.post("/upload", upload.single("file"), videoController.uploadVideo);
 
 module.exports = router;
 
@@ -223,4 +226,31 @@ module.exports = router;
  *         $ref: '#/components/responses/Forbidden'
  *       "404":
  *         $ref: '#/components/responses/NotFound'
+ */
+
+/**
+ * @swagger
+ * /videos/upload:
+ *  post:
+ *    summary: Upload a video
+ *    description: Only admins can upload videos
+ *    tags: [Video]
+ *    requestBody:
+ *      content:
+ *        multipart/form-data:
+ *          schema:
+ *            type: object
+ *            properties:
+ *              file:
+ *                type: string
+ *                format: binary
+ *            example:
+ *               name: fake name
+ *               file: /videos/test.mp4
+ *
+ *    responses:
+ *       "201":
+ *         description: Created
+ *         content:
+ *            multipart/form-data:
  */

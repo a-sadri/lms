@@ -18,12 +18,17 @@ app.use(helmet());
 // set logger
 app.use(morgan("tiny"));
 
+app.use(express.static("public"));
+
 // enable cors
 app.use(cors());
 app.options("*", cors());
 
 // parse json request body
 app.use(express.json());
+
+// parse urlencoded request body
+app.use(express.urlencoded({ extended: true }));
 
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));

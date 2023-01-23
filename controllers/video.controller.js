@@ -30,4 +30,15 @@ const deleteVideo = async (req, res) => {
   req.status(httpStatus.NO_CONTENT).send();
 };
 
-module.exports = { createVideo, getVideos, getVideo, updateVideo, deleteVideo };
+const uploadVideo = async (req, res) => {
+  return res.json({ message: req.file.location });
+};
+
+module.exports = {
+  createVideo,
+  getVideos,
+  getVideo,
+  updateVideo,
+  deleteVideo,
+  uploadVideo,
+};
