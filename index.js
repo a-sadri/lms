@@ -18,8 +18,6 @@ app.use(helmet());
 // set logger
 app.use(morgan("tiny"));
 
-app.use(express.static("public"));
-
 // enable cors
 app.use(cors());
 app.options("*", cors());
